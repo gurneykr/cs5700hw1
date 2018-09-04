@@ -11,4 +11,9 @@ public class Validator {
         if (value<0)
             throw new ShapeException(errorMessage);
     }
+
+    public static void validatePositivePoint(Point value, String errorMessage) throws ShapeException {
+        validatePositiveDouble(value.getX(), errorMessage);
+        validatePositiveDouble(value.getY(), errorMessage);
+    }
 }
