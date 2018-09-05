@@ -12,7 +12,6 @@ public class Rectangle {
         Validator.validatePositivePoint(topRight, "Top Right Invalid");
         Validator.validatePositivePoint(topLeft, "Top Left Invalid");
 
-
         this.bottomLeft = bottomLeft;
         this.bottomRight = bottomRight;
         this.topLeft = topLeft;
@@ -58,5 +57,21 @@ public class Rectangle {
         }
         return point;
     }
+
+    public double getWidth(){
+        return bottomRight.getX() - bottomLeft.getX();
+    }
+
+    public double getHeight(){
+        return topLeft.getY() - bottomLeft.getY();
+    }
+
+    public double getArea(){
+        return getHeight() * getWidth();
+    }
+
+
+
+
 
 }

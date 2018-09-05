@@ -30,7 +30,6 @@ public class RectangleTest {
         testNegativePoints(p3, p2, p1, p4);
         testNegativePoints(p4, p2, p3, p1);
 
-
     }
 
     public void testNegativePoints(Point p1, Point p2, Point p3, Point p4){
@@ -75,6 +74,27 @@ public class RectangleTest {
         }
     }
 
+    @Test
+    public void testWidthHeightArea(){
+        try {
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(5, 0);
+            Point p3 = new Point(0, 2);
+            Point p4 = new Point(5, 2);
 
+            Rectangle myRectangle = new Rectangle(p1, p2, p3, p4);
+            double width = myRectangle.getWidth();
+            double height = myRectangle.getHeight();
+            double area = myRectangle.getArea();
+
+            assertEquals(5,width,0.000001);
+            assertEquals(2,height,0.000001);
+            assertEquals(10,area,0.000001);
+
+
+        }catch(ShapeException e){
+            //expected an exception
+        }
+    }
 
 }
