@@ -54,7 +54,22 @@ public class RectangleTest {
 
             Rectangle myRectangle = new Rectangle(p1, p2, p3, p4);
             Point bottomLeft = myRectangle.getBottomLeft();
-            assertEquals(bottomLeft.getX(), 0.0, 0.00001);
+            Point bottomRight = myRectangle.getBottomRight();
+            Point topRight = myRectangle.getTopRight();
+            Point topLeft = myRectangle.getTopLeft();
+
+            assertEquals(bottomRight.getX(), 1, 0.00001);
+            assertEquals(bottomRight.getY(), 0.0, 0.00001);
+
+            assertEquals(bottomLeft.getX(), 0, 0.00001);
+            assertEquals(bottomLeft.getY(), 0.0, 0.00001);
+
+            assertEquals(topLeft.getX(), 1, 0.00001);
+            assertEquals(topLeft.getY(), 1, 0.00001);
+
+            assertEquals(topRight.getX(), 0, 0.00001);
+            assertEquals(topRight.getY(), 1, 0.00001);
+
         }catch (ShapeException e){
             assertEquals(true, false);
         }

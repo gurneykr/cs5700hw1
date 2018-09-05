@@ -9,8 +9,9 @@ public class Rectangle {
     public Rectangle(Point bottomLeft, Point bottomRight, Point topLeft, Point topRight) throws ShapeException{
         Validator.validatePositivePoint(bottomLeft, "Bottom Left Invalid");
         Validator.validatePositivePoint(bottomRight, "Bottom Right Invalid");
-        Validator.validatePositivePoint(topLeft, "Top Left Invalid");
         Validator.validatePositivePoint(topRight, "Top Right Invalid");
+        Validator.validatePositivePoint(topLeft, "Top Left Invalid");
+
 
         this.bottomLeft = bottomLeft;
         this.bottomRight = bottomRight;
@@ -27,4 +28,35 @@ public class Rectangle {
         }
         return point;
     }
+
+    public Point getBottomRight(){
+        Point point = null;
+        try {
+            point = bottomRight.copy();
+        }catch(ShapeException e){
+            //According to Point this will never be thrown
+        }
+        return point;
+    }
+
+    public Point getTopLeft(){
+        Point point = null;
+        try {
+            point = topLeft.copy();
+        }catch(ShapeException e){
+            //According to Point this will never be thrown
+        }
+        return point;
+    }
+
+    public Point getTopRight(){
+        Point point = null;
+        try {
+            point = topRight.copy();
+        }catch(ShapeException e){
+            //According to Point this will never be thrown
+        }
+        return point;
+    }
+
 }
