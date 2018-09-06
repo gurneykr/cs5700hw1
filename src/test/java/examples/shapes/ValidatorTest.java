@@ -75,4 +75,22 @@ public class ValidatorTest {
             assertEquals("Invalid", ex.getMessage());
         }
     }
+
+    @Test
+    public void testRightAngle(){
+
+        try{
+            Point bottomLeft = new Point(0, 0);
+            Point bottomRight = new Point(5, 0);
+            Point topLeft = new Point(0, 2);
+            Point topRight = new Point(6, 2);
+
+            Validator.validateRightAngle(bottomLeft, bottomRight, topLeft, topRight);
+
+            fail("Expected exception not thrown");
+        }catch (ShapeException ex){
+            assertEquals("Invalid Rectangle, needs to have right angles.", ex.getMessage());
+        }
+
+    }
 }
