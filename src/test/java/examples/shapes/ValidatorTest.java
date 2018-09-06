@@ -77,7 +77,7 @@ public class ValidatorTest {
     }
 
     @Test
-    public void testRightAngle(){
+    public void testInvalidRightAngle(){
 
         try{
             Point bottomLeft = new Point(0, 0);
@@ -92,5 +92,16 @@ public class ValidatorTest {
             assertEquals("Invalid Rectangle, needs to have right angles.", ex.getMessage());
         }
 
+    }
+
+    @Test
+    public void testRightAngle() throws ShapeException{
+
+        Point bottomLeft = new Point(0, 0);
+        Point bottomRight = new Point(5, 0);
+        Point topLeft = new Point(0, 2);
+        Point topRight = new Point(5, 2);
+
+        Validator.validateRightAngle(bottomLeft, bottomRight, topLeft, topRight);
     }
 }

@@ -12,6 +12,8 @@ public class Rectangle {
         Validator.validatePositivePoint(topRight, "Top Right Invalid");
         Validator.validatePositivePoint(topLeft, "Top Left Invalid");
 
+        Validator.validateRectangle(bottomLeft, bottomRight, topLeft, topRight);
+
         this.bottomLeft = bottomLeft;
         this.bottomRight = bottomRight;
         this.topLeft = topLeft;
@@ -58,17 +60,39 @@ public class Rectangle {
         return point;
     }
 
-    public double getWidth(){
-        return bottomRight.getX() - bottomLeft.getX();
+    public double getWidth()throws ShapeException{
+        Line line = new Line(bottomLeft, bottomRight);
+
+        return line.computeLength();
     }
 
-    public double getHeight(){
-        return topLeft.getY() - bottomLeft.getY();
+    public double getHeight() throws ShapeException{
+
+        Line line = new Line(topLeft,  bottomLeft);
+
+        return line.computeLength();
+
     }
 
-    public double getArea(){
+    public double getArea() throws ShapeException{
         return getHeight() * getWidth();
     }
+
+    public void move(double x, double y) throws ShapeException{
+        bottomLeft.moveX(x);
+        bottomLeft.moveY(y);
+
+        bottomRight.moveX(x);
+        bottomRight.moveY(y);
+
+        topLeft.moveX(x);
+        topLeft.moveY(y);
+
+        topRight.moveX(x);
+        topRight.moveY(y);
+
+    }
+
 
 
 
