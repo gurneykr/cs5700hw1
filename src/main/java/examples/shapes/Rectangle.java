@@ -19,7 +19,6 @@ public class Rectangle {
         this.topLeft = topLeft.copy();
         this.topRight = topRight.copy();
 
-
     }
 
     public Point getBottomLeft(){

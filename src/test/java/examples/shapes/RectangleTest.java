@@ -116,6 +116,8 @@ public class RectangleTest {
         assertEquals(rectangle.getBottomLeft(), bottomLeft);
         assertEquals(rectangle.getBottomRight(), bottomRight);
 
+        /////////////////////////////////////////////////////
+        ///Tests for negative move
         Point expectedTopLeft = new Point(-1.0, -2.0);
         Point expectedTopRight = new Point(4.0, -2.0);
         Point expectedBottomLeft = new Point(-1.0, 0.0);
@@ -128,7 +130,7 @@ public class RectangleTest {
         assertEquals(rectangle.getBottomLeft(), expectedBottomLeft);
         assertEquals(rectangle.getBottomRight(), expectedBottomRight);
 
-
+        ///////////////////////////////////////////////////////////
         //tests for positive move
         Point expectedTopLeft2 = new Point(2.0, 0.0);
         Point expectedTopRight2 = new Point(7.0, 0.0);
@@ -141,16 +143,5 @@ public class RectangleTest {
         assertEquals(rectangle.getTopRight(), expectedTopRight2);
         assertEquals(rectangle.getBottomLeft(), expectedBottomLeft2);
         assertEquals(rectangle.getBottomRight(), expectedBottomRight2);
-
-
-
     }
-
-    @Test
-    public void testPositiveMove(){
-
-    }
-
-
-
 }
