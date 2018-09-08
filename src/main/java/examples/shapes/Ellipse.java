@@ -15,16 +15,18 @@ public class Ellipse {
         }
 
         this.center = center.copy();
+        this.a = a;
+        this.b = b;
 
     }
 
     public Point getCenter()throws ShapeException{
         return center.copy();
     }
-    
+
     public double getFoci(){
         //length of foci = a^2-b^2
-        return Math.sqrt(Math.pow(a,2)-Math.pow(b,2));
+        return Math.sqrt(Math.pow(a,2) - Math.pow(b,2));
     }
 
     public double getArea(){
@@ -33,12 +35,13 @@ public class Ellipse {
     }
 
     //move the ellipse
-    public void move(Point movePoint)throws ShapeException{
+    public void moveTo(Point movePoint)throws ShapeException{
         center = movePoint.copy();
     }
 
     public void move(double x, double y)throws ShapeException{
-        center = new Point(x,y);
+        center.moveX(x);
+        center.moveY(y);
     }
 
 

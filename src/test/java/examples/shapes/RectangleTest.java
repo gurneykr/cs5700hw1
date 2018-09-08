@@ -75,7 +75,7 @@ public class RectangleTest {
     }
 
     @Test
-    public void testWidthHeightArea(){ ///add more test for scewed rectangle
+    public void testWidthHeightArea(){
         try {
             Point p1 = new Point(0, 0);
             Point p2 = new Point(5, 0);
