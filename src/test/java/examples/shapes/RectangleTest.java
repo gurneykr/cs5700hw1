@@ -75,7 +75,7 @@ public class RectangleTest {
     }
 
     @Test
-    public void testWidthHeightArea(){
+    public void testWidthHeightArea(){ ///add more test for scewed rectangle
         try {
             Point p1 = new Point(0, 0);
             Point p2 = new Point(5, 0);
@@ -96,5 +96,44 @@ public class RectangleTest {
             //expected an exception
         }
     }
+
+
+
+    //test move
+    @Test
+    public void testMove() throws ShapeException{
+
+        Point topLeft = new Point(0, 0);
+        Point topRight = new Point(5, 0);
+        Point bottomLeft = new Point(0, 2);
+        Point bottomRight = new Point(5, 2);
+        Rectangle rectangle = new Rectangle(bottomLeft, bottomRight, topLeft, topRight);
+
+        rectangle.move(0.0, 0.0);//test no move
+
+        assertEquals(rectangle.getTopLeft(), topLeft); //in Point class added equals function to test if points are equal
+        assertEquals(rectangle.getTopRight(), topRight);
+        assertEquals(rectangle.getBottomLeft(), bottomLeft);
+        assertEquals(rectangle.getBottomRight(), bottomRight);
+
+        Point expectedTopLeft = new Point(-1.2, -2.5);
+        Point expectedTopRight = new Point(3.8, -2.5);
+        Point expectedBottomLeft = new Point(-1.2, -0.5);
+        Point expectedBottomRight = new Point(3.8, -0.5);
+
+        rectangle.move(-1.2, -2.5);//test negative move
+
+        assertEquals(rectangle.getTopLeft(), expectedTopLeft);
+        assertEquals(rectangle.getTopRight(), expectedTopRight);
+        assertEquals(rectangle.getBottomLeft(), expectedBottomLeft);
+        assertEquals(rectangle.getBottomRight(), expectedBottomRight);
+    }
+
+    @Test
+    public void testPositiveMove(){
+
+    }
+
+
 
 }

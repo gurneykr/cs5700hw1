@@ -14,10 +14,12 @@ public class Rectangle {
 
         Validator.validateRectangle(bottomLeft, bottomRight, topLeft, topRight);
 
-        this.bottomLeft = bottomLeft;
-        this.bottomRight = bottomRight;
-        this.topLeft = topLeft;
-        this.topRight = topRight;
+        this.bottomLeft = bottomLeft.copy();
+        this.bottomRight = bottomRight.copy();
+        this.topLeft = topLeft.copy();
+        this.topRight = topRight.copy();
+
+
     }
 
     public Point getBottomLeft(){
