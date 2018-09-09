@@ -48,8 +48,8 @@ public class RectangleTest {
         try {
             Point p1 = new Point(0, 0);
             Point p2 = new Point(1, 0);
-            Point p3 = new Point(1, 1);
-            Point p4 = new Point(0, 1);
+            Point p3 = new Point(0, 1);
+            Point p4 = new Point(1, 1);
 
             Rectangle myRectangle = new Rectangle(p1, p2, p3, p4);
             Point bottomLeft = myRectangle.getBottomLeft();
@@ -63,10 +63,10 @@ public class RectangleTest {
             assertEquals(bottomLeft.getX(), 0, 0.00001);
             assertEquals(bottomLeft.getY(), 0.0, 0.00001);
 
-            assertEquals(topLeft.getX(), 1, 0.00001);
+            assertEquals(topLeft.getX(), 0, 0.00001);
             assertEquals(topLeft.getY(), 1, 0.00001);
 
-            assertEquals(topRight.getX(), 0, 0.00001);
+            assertEquals(topRight.getX(), 1, 0.00001);
             assertEquals(topRight.getY(), 1, 0.00001);
 
         }catch (ShapeException e){

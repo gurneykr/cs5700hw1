@@ -1,5 +1,7 @@
 package examples.shapes;
 
+import java.beans.Transient;
+
 public class Validator {
     public static void validateDouble(double value, String errorMessage) throws ShapeException {
         if (Double.isInfinite(value) || Double.isNaN(value))
@@ -29,23 +31,52 @@ public class Validator {
         validatePositivePoint(topLeft, "No negative points");
 
         //check for right angles
-        validateRightAngle(bottomLeft, bottomRight, topLeft, topRight);
+        validateRightAngles(bottomLeft, bottomRight, topLeft, topRight);
 
     }
 
-    public static void validateRightAngle(Point bottomLeft, Point bottomRight, Point topLeft, Point topRight) throws ShapeException {
-        Line line1 = new Line(bottomLeft, bottomRight);
-        Line line2 = new Line(topLeft, topRight);
-        Line line3 = new Line(topLeft,  bottomLeft);
-        Line line4 = new Line(topRight, bottomRight);
+    public static void validateRightAngles(Point bottomLeft, Point bottomRight, Point topLeft, Point topRight) throws ShapeException {
+        Line bottomLine = new Line(bottomLeft, bottomRight);
+        Line topLine = new Line(topLeft, topRight);
+        Line leftLine = new Line(topLeft,  bottomLeft);
+        Line rightSide = new Line(topRight, bottomRight);
 
-        double line1Length = line1.computeLength();
-        double line2Length = line2.computeLength();
-        double line3Length = line3.computeLength();
-        double line4Length = line4.computeLength();
+        double bottomLineLength = bottomLine.computeLength();
+        double topLineLength = topLine.computeLength();
+        double leftLineLength = leftLine.computeLength();
+        double rightLineLength = rightSide.computeLength();
 
-        if(line1Length != line2Length || line3Length != line4Length){
-            throw new ShapeException("Invalid Rectangle, needs to have right angles.");
+
+        Line diagonal = new Line(bottomLeft, topRight);
+        double diagonalLength = diagonal.computeLength();
+
+        //check if sqrt(a^2 + b^2 = sqrt(c^2)
+        if( Math.sqrt( (Math.pow(leftLineLength,2)+ Math.pow(topLineLength,2)) )!= diagonalLength){
+            throw new ShapeException("Not a right angle");
+        }
+
+        //check if sqrt(a^2 + b^2) = sqrt(c^2)
+        if( Math.sqrt( (Math.pow(bottomLineLength,2)+ Math.pow(rightLineLength,2)) )!= diagonalLength){
+            throw new ShapeException("Not a right angle");
+        }
+
+    }
+
+    public static void validateEqualSides(Point bottomLeft, Point bottomRight, Point topLeft, Point topRight)throws ShapeException{
+        Line bottomLine = new Line(bottomLeft, bottomRight);
+        Line topLine = new Line(topLeft, topRight);
+        Line leftLine = new Line(topLeft,  bottomLeft);
+        Line rightSide = new Line(topRight, bottomRight);
+
+        double bottomLineLength = bottomLine.computeLength();
+        double topLineLength = topLine.computeLength();
+        double leftLineLength = leftLine.computeLength();
+        double rightLineLength = rightSide.computeLength();
+
+        if( !(bottomLineLength == topLineLength && leftLineLength == rightLineLength && bottomLineLength == leftLineLength) ){
+            throw new ShapeException("Sides are not equal length");
         }
     }
+
+
 }

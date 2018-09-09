@@ -85,7 +85,7 @@ public class ValidatorTest {
             Point topLeft = new Point(0, 2);
             Point topRight = new Point(6, 2);
 
-            Validator.validateRightAngle(bottomLeft, bottomRight, topLeft, topRight);
+            Validator.validateRightAngles(bottomLeft, bottomRight, topLeft, topRight);
 
             fail("Expected exception not thrown");
         }catch (ShapeException ex){
@@ -102,6 +102,6 @@ public class ValidatorTest {
         Point topLeft = new Point(0, 2);
         Point topRight = new Point(5, 2);
 
-        Validator.validateRightAngle(bottomLeft, bottomRight, topLeft, topRight);
+        Validator.validateRightAngles(bottomLeft, bottomRight, topLeft, topRight);
     }
 }

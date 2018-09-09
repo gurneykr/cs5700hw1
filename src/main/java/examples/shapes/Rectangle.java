@@ -1,10 +1,10 @@
 package examples.shapes;
 
 public class Rectangle {
-    private Point bottomLeft;
-    private Point bottomRight;
-    private Point topLeft;
-    private Point topRight;
+    protected Point bottomLeft;
+    protected Point bottomRight;
+    protected Point topLeft;
+    protected Point topRight;
 
     public Rectangle(Point bottomLeft, Point bottomRight, Point topLeft, Point topRight) throws ShapeException{
         Validator.validatePositivePoint(bottomLeft, "Bottom Left Invalid");
