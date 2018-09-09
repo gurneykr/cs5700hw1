@@ -24,7 +24,7 @@ public class Validator {
         if(bottomLeft == null  || bottomRight == null || topLeft == null || topRight == null ){
             throw new ShapeException("Invalid Rectangle, null points not allowed");
         }
-        //validate if the points are postive
+        //validate if the points are positive
         validatePositivePoint(bottomLeft, "No negative points");
         validatePositivePoint(bottomRight, "No negative points");
         validatePositivePoint(topLeft, "No negative points");

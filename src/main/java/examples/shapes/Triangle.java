@@ -3,16 +3,13 @@ package examples.shapes;
 public class Triangle {
     Point a = new Point(1,1);
     Point b = new Point(2,3);
-    Point c = new Point(2,3);
+    Point c = new Point(3,1);
 
     public Triangle(Point a, Point b, Point c)throws ShapeException{
-        Validator.validatePositivePoint(a, "Bottom Left Invalid");
-        Validator.validatePositivePoint(b, "Bottom Right Invalid");
-        Validator.validatePositivePoint(c, "Top Right Invalid");
 
-        this.a = a;
-        this.b = b;
-        this.c = c;
+        this.a = a.copy();
+        this.b = b.copy();
+        this.c = c.copy();
     }
     public Point getA(){
         Point point = null;
@@ -45,9 +42,20 @@ public class Triangle {
     }
 
 
-//    public double getArea() throws ShapeException{
-//
-//    }
+    public double getArea() throws ShapeException{
+        Line ab = new Line(getA(), getB());
+        Line ac = new Line(getA(), getC());
+        Line bc = new Line(getB(), getC());
+
+        double abLength = ab.computeLength();
+        double acLength = ac.computeLength();
+        double bcLength = bc.computeLength();
+
+        //p is half of the perimeter
+        double p = (abLength + acLength + bcLength)/2;
+        double area = Math.sqrt(p*(p-acLength)*(p-abLength)*(p-bcLength));
+        return area;
+    }
 
     public void move(double x, double y) throws ShapeException{
         a.moveX(x);

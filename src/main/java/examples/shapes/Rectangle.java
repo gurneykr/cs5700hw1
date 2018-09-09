@@ -7,10 +7,6 @@ public class Rectangle {
     protected Point topRight;
 
     public Rectangle(Point bottomLeft, Point bottomRight, Point topLeft, Point topRight) throws ShapeException{
-        Validator.validatePositivePoint(bottomLeft, "Bottom Left Invalid");
-        Validator.validatePositivePoint(bottomRight, "Bottom Right Invalid");
-        Validator.validatePositivePoint(topRight, "Top Right Invalid");
-        Validator.validatePositivePoint(topLeft, "Top Left Invalid");
 
         Validator.validateRectangle(bottomLeft, bottomRight, topLeft, topRight);
 
