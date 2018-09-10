@@ -89,10 +89,4 @@ public class Rectangle {
         topRight.moveY(y);
 
     }
-
-
-
-
-
-
 }

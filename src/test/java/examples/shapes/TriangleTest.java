@@ -3,6 +3,7 @@ package examples.shapes;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class TriangleTest {
     @Test
@@ -14,6 +15,27 @@ public class TriangleTest {
         Triangle triangle = new Triangle(a, b, c);
 
         assertEquals(a.getX(), triangle.getA().getX(), 0.0000001);
+    }
+
+    @Test
+    public void testZeroTriangle() throws ShapeException {
+
+        Point a = null;
+        Point b = null;
+        Point c = null;
+        Triangle triangle = null;
+        try {
+            a = new Point(0, 0);
+            b = new Point(0, 0);
+            c = new Point(0, 0);
+
+            triangle = new Triangle(a, b, c);
+            fail("Cannot construct an empty triangle"); //if we ever get here, an exception is expected
+
+        }catch (ShapeException e){
+
+            assertEquals(true,true);
+        }
     }
 
     @Test

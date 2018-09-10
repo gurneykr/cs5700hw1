@@ -1,15 +1,20 @@
 package examples.shapes;
 
 public class Triangle {
-    Point a = new Point(1,1);
-    Point b = new Point(2,3);
-    Point c = new Point(3,1);
+    private Point a = new Point(1,1);
+    private Point b = new Point(2,3);
+    private Point c = new Point(3,1);
 
     public Triangle(Point a, Point b, Point c)throws ShapeException{
 
         this.a = a.copy();
         this.b = b.copy();
         this.c = c.copy();
+
+        if(this.getArea()==0){
+            //if there's ever a triangle with 0 area it's not valid, points are on the same line
+            throw new ShapeException("Invalid triangle");
+        }
     }
     public Point getA(){
         Point point = null;
