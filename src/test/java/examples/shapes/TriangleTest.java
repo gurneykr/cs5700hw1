@@ -18,7 +18,7 @@ public class TriangleTest {
     }
 
     @Test
-    public void testZeroTriangle() throws ShapeException {
+    public void testZeroTriangle() {
 
         Point a = null;
         Point b = null;

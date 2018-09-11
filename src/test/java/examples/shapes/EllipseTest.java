@@ -32,7 +32,7 @@ public class EllipseTest {
     }
 
     @Test
-    public void testMoveTo()throws ShapeException{
+    public void testMoveTo()throws ShapeException{//move to a location
         Point center = new Point(6,5);
         Ellipse ellipse = new Ellipse(center,7, 3);
 
@@ -44,7 +44,7 @@ public class EllipseTest {
     }
 
     @Test
-    public void testMove()throws ShapeException{
+    public void testMove()throws ShapeException{//move an amount
         Point center = new Point(6,5);
         Ellipse ellipse = new Ellipse(center,7, 3);
 
